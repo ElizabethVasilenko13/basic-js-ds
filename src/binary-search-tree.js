@@ -34,7 +34,7 @@ class BinarySearchTree {
   }
 
   has(data) {
-    function searchItem(node, item) {
+    function hasItem(node, item) {
       if (!node) {
         return false;
       }
@@ -44,13 +44,13 @@ class BinarySearchTree {
       }
 
       if (item > node.data) {
-        return searchItem(node.right, item);
+        return hasItem(node.right, item);
       } else {
-        return searchItem(node.left, item);
+        return hasItem(node.left, item);
       }
     }
 
-    return searchItem(this.binaryTreeRoot, data);
+    return hasItem(this.binaryTreeRoot, data);
   }
 
   find(data) {
@@ -115,10 +115,7 @@ class BinarySearchTree {
   }
 
   min() {
-    if (!this.binaryTreeRoot) {
-      return null;
-    }
-
+    
     let minRoot = this.binaryTreeRoot;
 
     while (minRoot.left) {
@@ -129,10 +126,6 @@ class BinarySearchTree {
   }
 
   max() {
-    if (!this.binaryTreeRoot) {
-      return null;
-    }
-
     let maxRoot = this.binaryTreeRoot;
 
     while (maxRoot.right) {
